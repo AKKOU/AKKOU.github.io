@@ -1,14 +1,24 @@
-function openNav(x) {
+var isOpen=false;
+function openNav(event,x) {
+    event.stopPropagation();
     document.getElementById("mySidenav").style.width = "250px";
     document.getElementById("main").style.marginRight = "250px";
     document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
     x.classList.toggle("change");
+    setTimeout(function() {
+        isOpen = true;
+    }, 1);
 }
-  
-function closeNav() {
-document.getElementById("mySidenav").style.width = "0";
-document.getElementById("main").style.marginRight= "0";
-document.body.style.backgroundColor = "white";
+
+function closeNav(event) {
+    if(event.target.id !== 'mySidenav' || !document.getElementById('mySidenav').contains(event.target)){
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginRight= "0";
+        document.body.style.backgroundColor = "white";
+        setTimeout(function() {
+            isOpen = false;
+        }, 1);
+    }
 }
 
 function isElementInViewport(el){
@@ -42,11 +52,3 @@ function copycontact(name){
         x.className = x.className.replace('show','');}, 3000);
 }
 
-$(document).ready(function() {
-	//以ul li包子選單
-	$('.cart>li>a').click(function(event) {
-		event.preventDefault();
-		$(this).toggleClass('active');
-		$(this).siblings('ul').slideToggle(2000);
-    });
-});
