@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="UTF-8">
+        <title>AKOU'S Personal Website - Coding</title>
+        <link rel="stylesheet" href="external/styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
+        <link href='https://unpkg.com/css.gg@2.0.0/icons/css/menu.css' rel='stylesheet'>
+        <script type="text/javascript" src="external/script.js"></script>
+    </head>
+
+    <body>
+        <div class="imgbox">
+            <img class="BigTitle" src="image/logo1.png" onclick="window.location.href='index.html'">
+            <div class="container" onclick="openNav(this)">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+        </div>
+
+        <div class="navbar">
+            <ul class="cart">
+                <li>
+                    <h2>APCS</h2>
+                    <ul>
+                        <li><a href="#c290">c290</a></li>
+                        <li><a href="#c291">c291</a></li>
+                        <li><a href="#d575">d575</a></li>
+                        <li><a href="#e786">e786</a></li>
+                        <li><a href="#m931">m931</a></li>
+                        <li><a href="#m932">m932</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="code" id="c290">
+            <li>c290</li>
+            <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(43, 43, 43); color: rgb(186, 186, 186);"><span class="hljs-meta" style="color: rgb(127, 127, 127);">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta" style="color: rgb(127, 127, 127);">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta" style="color: rgb(127, 127, 127);">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;vector&gt;</span></span>
+<span class="hljs-keyword" style="color: rgb(203, 120, 50);">using</span> <span class="hljs-keyword" style="color: rgb(203, 120, 50);">namespace</span> <span class="hljs-built_in" style="color: rgb(224, 196, 108);">std</span>;
+
+<span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> odd=<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>,even=<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>;
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(203, 120, 50);">void</span> <span class="hljs-title">isodd</span><span class="hljs-params" style="color: rgb(185, 185, 185);">(<span class="hljs-keyword" style="color: rgb(203, 120, 50);">char</span> check)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> <span class="hljs-title">ans</span><span class="hljs-params" style="color: rgb(185, 185, 185);">(<span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> odd,<span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> even)</span></span>;
+
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> <span class="hljs-title">main</span><span class="hljs-params" style="color: rgb(185, 185, 185);">()</span> </span>{
+    <span class="hljs-built_in" style="color: rgb(224, 196, 108);">string</span> input;
+    <span class="hljs-built_in" style="color: rgb(224, 196, 108);">cin</span> &gt;&gt; input;
+
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">for</span>(<span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> i=<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>;i&lt;input.size();i++){
+        <span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> checkint = input[i] - <span class="hljs-string" style="color: rgb(224, 196, 108);">'0'</span>;
+        <span class="hljs-keyword" style="color: rgb(203, 120, 50);">if</span>(i%<span class="hljs-number" style="color: rgb(104, 150, 186);">2</span>!=<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>)
+            odd+=checkint;
+        <span class="hljs-keyword" style="color: rgb(203, 120, 50);">else</span>
+            even+=checkint;
+    }
+    <span class="hljs-built_in" style="color: rgb(224, 196, 108);">cout</span> &lt;&lt; ans(odd,even);
+
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">return</span> <span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>;
+}
+
+
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> <span class="hljs-title">ans</span><span class="hljs-params" style="color: rgb(185, 185, 185);">(<span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> odd,<span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> even)</span></span>{
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">if</span>(odd&gt;even)
+        <span class="hljs-keyword" style="color: rgb(203, 120, 50);">return</span> odd-even;
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">else</span>
+        <span class="hljs-keyword" style="color: rgb(203, 120, 50);">return</span> even-odd;
+}</pre>
+        </div>
+
+        <div class="code" id="c291">
+            <li>c291</li>
+            <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(43, 43, 43); color: rgb(186, 186, 186);"><span class="hljs-meta" style="color: rgb(127, 127, 127);">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta" style="color: rgb(127, 127, 127);">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta" style="color: rgb(127, 127, 127);">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;vector&gt;</span></span>
+<span class="hljs-keyword" style="color: rgb(203, 120, 50);">using</span> <span class="hljs-keyword" style="color: rgb(203, 120, 50);">namespace</span> <span class="hljs-built_in" style="color: rgb(224, 196, 108);">std</span>;
+
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> <span class="hljs-title">main</span><span class="hljs-params" style="color: rgb(185, 185, 185);">()</span> </span>{
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> people,count=<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>;
+    <span class="hljs-built_in" style="color: rgb(224, 196, 108);">vector</span>&lt;<span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span>&gt; friends;
+    <span class="hljs-built_in" style="color: rgb(224, 196, 108);">cin</span> &gt;&gt; people;
+    <span class="hljs-built_in" style="color: rgb(224, 196, 108);">vector</span>&lt;<span class="hljs-keyword" style="color: rgb(203, 120, 50);">bool</span>&gt; visted(people,<span class="hljs-literal" style="color: rgb(104, 150, 186);">false</span>);
+
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">for</span>(<span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> i=<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>;i&lt;people;i++){
+        <span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> inputf;
+        <span class="hljs-built_in" style="color: rgb(224, 196, 108);">cin</span> &gt;&gt; inputf;
+        friends.push_back(inputf);
+    }
+    
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">for</span>(<span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> i=<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>;i&lt;people;i++){
+        <span class="hljs-keyword" style="color: rgb(203, 120, 50);">if</span>(visted[i]) <span class="hljs-keyword" style="color: rgb(203, 120, 50);">continue</span>;
+
+        <span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> tmp = i;
+        <span class="hljs-keyword" style="color: rgb(203, 120, 50);">while</span>(!visted[tmp]){
+            visted[tmp] = <span class="hljs-literal" style="color: rgb(104, 150, 186);">true</span>;
+            tmp = friends[tmp];
+        }
+        count++;
+    }
+
+    <span class="hljs-built_in" style="color: rgb(224, 196, 108);">cout</span> &lt;&lt; count;
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">return</span> <span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>;
+}</pre>
+        </div>
+
+        <div class="code" id="d575">
+            <li>d575</li>
+            <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(43, 43, 43); color: rgb(186, 186, 186);"><span class="hljs-meta" style="color: rgb(127, 127, 127);">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta" style="color: rgb(127, 127, 127);">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta" style="color: rgb(127, 127, 127);">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;vector&gt;</span></span>
+<span class="hljs-keyword" style="color: rgb(203, 120, 50);">using</span> <span class="hljs-keyword" style="color: rgb(203, 120, 50);">namespace</span> <span class="hljs-built_in" style="color: rgb(224, 196, 108);">std</span>;
+                
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> <span class="hljs-title">main</span><span class="hljs-params" style="color: rgb(185, 185, 185);">()</span> </span>{
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">long</span> <span class="hljs-keyword" style="color: rgb(203, 120, 50);">long</span> <span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> data[<span class="hljs-number" style="color: rgb(104, 150, 186);">5</span>];
+    
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">while</span> (<span class="hljs-built_in" style="color: rgb(224, 196, 108);">scanf</span>(<span class="hljs-string" style="color: rgb(224, 196, 108);">"%lld%lld%lld%lld%lld"</span>,&amp;data[<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>],&amp;data[<span class="hljs-number" style="color: rgb(104, 150, 186);">1</span>],&amp;data[<span class="hljs-number" style="color: rgb(104, 150, 186);">2</span>],&amp;data[<span class="hljs-number" style="color: rgb(104, 150, 186);">3</span>],&amp;data[<span class="hljs-number" style="color: rgb(104, 150, 186);">4</span>])!=EOF)
+    {
+        <span class="hljs-keyword" style="color: rgb(203, 120, 50);">if</span>(<span class="hljs-built_in" style="color: rgb(224, 196, 108);">abs</span>(data[<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>]-data[<span class="hljs-number" style="color: rgb(104, 150, 186);">2</span>])+<span class="hljs-built_in" style="color: rgb(224, 196, 108);">abs</span>(data[<span class="hljs-number" style="color: rgb(104, 150, 186);">1</span>]-data[<span class="hljs-number" style="color: rgb(104, 150, 186);">3</span>])&lt;=data[<span class="hljs-number" style="color: rgb(104, 150, 186);">4</span>]){
+            <span class="hljs-built_in" style="color: rgb(224, 196, 108);">printf</span>(<span class="hljs-string" style="color: rgb(224, 196, 108);">"die\n"</span>);
+        }
+        <span class="hljs-keyword" style="color: rgb(203, 120, 50);">else</span>{
+            <span class="hljs-built_in" style="color: rgb(224, 196, 108);">printf</span>(<span class="hljs-string" style="color: rgb(224, 196, 108);">"alive\n"</span>);
+        }
+    }
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">return</span> <span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>;
+}</pre>
+        </div>
+
+        <div class="code" id="e786">
+            <li>e786</li>
+            <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(43, 43, 43); color: rgb(186, 186, 186);"><span class="hljs-meta" style="color: rgb(127, 127, 127);">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta" style="color: rgb(127, 127, 127);">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta" style="color: rgb(127, 127, 127);">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;vector&gt;</span></span>
+<span class="hljs-keyword" style="color: rgb(203, 120, 50);">using</span> <span class="hljs-keyword" style="color: rgb(203, 120, 50);">namespace</span> <span class="hljs-built_in" style="color: rgb(224, 196, 108);">std</span>;
+
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> <span class="hljs-title">main</span><span class="hljs-params" style="color: rgb(185, 185, 185);">()</span> </span>{
+    <span class="hljs-built_in" style="color: rgb(224, 196, 108);">string</span> input;
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> cnt=<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>;
+    <span class="hljs-built_in" style="color: rgb(224, 196, 108);">cin</span> &gt;&gt; input;
+    
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">for</span>(<span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> i=<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>;i&lt;input.size()/<span class="hljs-number" style="color: rgb(104, 150, 186);">2</span>;i++){
+        <span class="hljs-keyword" style="color: rgb(203, 120, 50);">if</span>(input[i]==input[input.size()<span class="hljs-number" style="color: rgb(104, 150, 186);">-1</span>-i])
+            cnt++;
+    }
+
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">if</span>(cnt == (input.size()/<span class="hljs-number" style="color: rgb(104, 150, 186);">2</span>)&amp;&amp;input.size()%<span class="hljs-number" style="color: rgb(104, 150, 186);">2</span>==<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>){
+        <span class="hljs-built_in" style="color: rgb(224, 196, 108);">cout</span> &lt;&lt; <span class="hljs-string" style="color: rgb(224, 196, 108);">"YES\n"</span>;  
+        <span class="hljs-keyword" style="color: rgb(203, 120, 50);">for</span>(<span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> i=<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>;i&lt;input.size()/<span class="hljs-number" style="color: rgb(104, 150, 186);">2</span>;i++){
+            <span class="hljs-built_in" style="color: rgb(224, 196, 108);">cout</span> &lt;&lt; input[i];
+        }
+    }
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">else</span>
+        <span class="hljs-built_in" style="color: rgb(224, 196, 108);">cout</span> &lt;&lt; <span class="hljs-string" style="color: rgb(224, 196, 108);">"NO\n"</span>;
+
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">return</span> <span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>;
+}</pre>
+        </div>
+
+        <div class="code" id="m931">
+            <li>m931</li>
+            <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(43, 43, 43); color: rgb(186, 186, 186);"><span class="hljs-meta" style="color: rgb(127, 127, 127);">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta" style="color: rgb(127, 127, 127);">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta" style="color: rgb(127, 127, 127);">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;vector&gt;</span></span>
+<span class="hljs-keyword" style="color: rgb(203, 120, 50);">using</span> <span class="hljs-keyword" style="color: rgb(203, 120, 50);">namespace</span> <span class="hljs-built_in" style="color: rgb(224, 196, 108);">std</span>;
+
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> <span class="hljs-title">main</span><span class="hljs-params" style="color: rgb(185, 185, 185);">()</span> </span>{
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> people;
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> max=<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>;
+    <span class="hljs-built_in" style="color: rgb(224, 196, 108);">vector</span>&lt;<span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span>&gt; re_a,re_d;
+    <span class="hljs-built_in" style="color: rgb(224, 196, 108);">cin</span> &gt;&gt; people;
+
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">for</span>(<span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> i=<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>;i&lt;people;i++){
+        <span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> a,d;
+        <span class="hljs-built_in" style="color: rgb(224, 196, 108);">cin</span> &gt;&gt; a &gt;&gt; d;
+        re_a.push_back(a);
+        re_d.push_back(d);
+    }
+
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">for</span>(<span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> i=<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>;i&lt;people;i++){
+        <span class="hljs-keyword" style="color: rgb(203, 120, 50);">for</span>(<span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> j=<span class="hljs-number" style="color: rgb(104, 150, 186);">1</span>;j&lt;people-i;j++){
+            <span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> rr1 = re_a[j<span class="hljs-number" style="color: rgb(104, 150, 186);">-1</span>]*re_a[j<span class="hljs-number" style="color: rgb(104, 150, 186);">-1</span>] + re_d[j<span class="hljs-number" style="color: rgb(104, 150, 186);">-1</span>]*re_d[j<span class="hljs-number" style="color: rgb(104, 150, 186);">-1</span>];
+            <span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> rr2 = re_a[j]*re_a[j] + re_d[j]*re_d[j];
+            <span class="hljs-keyword" style="color: rgb(203, 120, 50);">if</span>(rr1&gt;rr2){
+                <span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> at1 = re_a[j<span class="hljs-number" style="color: rgb(104, 150, 186);">-1</span>];
+                <span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> dt1 = re_d[j<span class="hljs-number" style="color: rgb(104, 150, 186);">-1</span>];
+
+                re_a[j<span class="hljs-number" style="color: rgb(104, 150, 186);">-1</span>] = re_a[j];
+                re_d[j<span class="hljs-number" style="color: rgb(104, 150, 186);">-1</span>] = re_d[j];
+                re_a[j] = at1;
+                re_d[j] = dt1;
+            }
+        }
+    }
+    <span class="hljs-built_in" style="color: rgb(224, 196, 108);">cout</span> &lt;&lt; re_a[people<span class="hljs-number" style="color: rgb(104, 150, 186);">-2</span>] &lt;&lt; <span class="hljs-string" style="color: rgb(224, 196, 108);">" "</span> &lt;&lt; re_d[people<span class="hljs-number" style="color: rgb(104, 150, 186);">-2</span>];
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">return</span> <span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>;
+}</pre>
+        </div>
+
+        <div class="code" id="m932">
+            <li>m932</li>
+            <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(43, 43, 43); color: rgb(186, 186, 186);"><span class="hljs-meta" style="color: rgb(127, 127, 127);">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta" style="color: rgb(127, 127, 127);">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta" style="color: rgb(127, 127, 127);">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;vector&gt;</span></span>
+<span class="hljs-meta" style="color: rgb(127, 127, 127);">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;set&gt;</span></span>
+<span class="hljs-keyword" style="color: rgb(203, 120, 50);">using</span> <span class="hljs-keyword" style="color: rgb(203, 120, 50);">namespace</span> std;
+
+<span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> main() {
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> m,n,k,xnow,ynow,count=<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>;
+    vector&lt;<span class="hljs-keyword" style="color: rgb(203, 120, 50);">char</span>&gt; <span class="hljs-built_in" style="color: rgb(224, 196, 108);">step</span>;
+    cin &gt;&gt; m &gt;&gt; n &gt;&gt; k;
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">char</span> beemap[m][n];
+
+    <span class="hljs-built_in" style="color: rgb(224, 196, 108);">for</span>(<span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> i=<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>;i&lt;m;i++){
+        <span class="hljs-built_in" style="color: rgb(224, 196, 108);">for</span>(<span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> j=<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>;j&lt;n;j++){
+            cin &gt;&gt; beemap[i][j];
+        }
+        xnow=i;
+    }
+    ynow=<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>;
+
+    <span class="hljs-built_in" style="color: rgb(224, 196, 108);">for</span>(<span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> kk=<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>;kk&lt;k;kk++){
+        <span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> inputs;
+        cin &gt;&gt; inputs;
+        
+        <span class="hljs-built_in" style="color: rgb(224, 196, 108);">switch</span> (inputs)
+        {
+        <span class="hljs-built_in" style="color: rgb(224, 196, 108);">case</span> <span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>:
+            <span class="hljs-built_in" style="color: rgb(224, 196, 108);">if</span>(xnow<span class="hljs-number" style="color: rgb(104, 150, 186);">-1</span>&gt;=<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>){
+                <span class="hljs-built_in" style="color: rgb(224, 196, 108);">step</span>.push_back(beemap[xnow<span class="hljs-number" style="color: rgb(104, 150, 186);">-1</span>][ynow]);
+                xnow -=<span class="hljs-number" style="color: rgb(104, 150, 186);">1</span>;
+            }
+            <span class="hljs-built_in" style="color: rgb(224, 196, 108);">else</span>
+                <span class="hljs-built_in" style="color: rgb(224, 196, 108);">step</span>.push_back(beemap[xnow][ynow]);
+            <span class="hljs-built_in" style="color: rgb(224, 196, 108);">break</span>;
+        <span class="hljs-built_in" style="color: rgb(224, 196, 108);">case</span> <span class="hljs-number" style="color: rgb(104, 150, 186);">1</span>:
+            <span class="hljs-built_in" style="color: rgb(224, 196, 108);">if</span>(ynow+<span class="hljs-number" style="color: rgb(104, 150, 186);">1</span>&lt;n){
+                <span class="hljs-built_in" style="color: rgb(224, 196, 108);">step</span>.push_back(beemap[xnow][ynow+<span class="hljs-number" style="color: rgb(104, 150, 186);">1</span>]);
+                ynow +=<span class="hljs-number" style="color: rgb(104, 150, 186);">1</span>;
+            }
+            <span class="hljs-built_in" style="color: rgb(224, 196, 108);">else</span>
+                <span class="hljs-built_in" style="color: rgb(224, 196, 108);">step</span>.push_back(beemap[xnow][ynow]);
+            <span class="hljs-built_in" style="color: rgb(224, 196, 108);">break</span>;
+        <span class="hljs-built_in" style="color: rgb(224, 196, 108);">case</span> <span class="hljs-number" style="color: rgb(104, 150, 186);">2</span>:
+            <span class="hljs-built_in" style="color: rgb(224, 196, 108);">if</span>(xnow+<span class="hljs-number" style="color: rgb(104, 150, 186);">1</span>&lt;m &amp;&amp; ynow+<span class="hljs-number" style="color: rgb(104, 150, 186);">1</span>&lt;n){
+                <span class="hljs-built_in" style="color: rgb(224, 196, 108);">step</span>.push_back(beemap[xnow+<span class="hljs-number" style="color: rgb(104, 150, 186);">1</span>][ynow+<span class="hljs-number" style="color: rgb(104, 150, 186);">1</span>]);
+                xnow +=<span class="hljs-number" style="color: rgb(104, 150, 186);">1</span>;
+                ynow +=<span class="hljs-number" style="color: rgb(104, 150, 186);">1</span>;
+            }
+            <span class="hljs-built_in" style="color: rgb(224, 196, 108);">else</span>
+                <span class="hljs-built_in" style="color: rgb(224, 196, 108);">step</span>.push_back(beemap[xnow][ynow]);
+            <span class="hljs-built_in" style="color: rgb(224, 196, 108);">break</span>;
+        <span class="hljs-built_in" style="color: rgb(224, 196, 108);">case</span> <span class="hljs-number" style="color: rgb(104, 150, 186);">3</span>:
+            <span class="hljs-built_in" style="color: rgb(224, 196, 108);">if</span>(xnow+<span class="hljs-number" style="color: rgb(104, 150, 186);">1</span>&lt;m){
+                <span class="hljs-built_in" style="color: rgb(224, 196, 108);">step</span>.push_back(beemap[xnow+<span class="hljs-number" style="color: rgb(104, 150, 186);">1</span>][ynow]);
+                xnow +=<span class="hljs-number" style="color: rgb(104, 150, 186);">1</span>;
+            }
+            <span class="hljs-built_in" style="color: rgb(224, 196, 108);">else</span>
+                <span class="hljs-built_in" style="color: rgb(224, 196, 108);">step</span>.push_back(beemap[xnow][ynow]);
+            <span class="hljs-built_in" style="color: rgb(224, 196, 108);">break</span>;
+        <span class="hljs-built_in" style="color: rgb(224, 196, 108);">case</span> <span class="hljs-number" style="color: rgb(104, 150, 186);">4</span>:
+            <span class="hljs-built_in" style="color: rgb(224, 196, 108);">if</span>(ynow<span class="hljs-number" style="color: rgb(104, 150, 186);">-1</span>&gt;=<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>){
+                <span class="hljs-built_in" style="color: rgb(224, 196, 108);">step</span>.push_back(beemap[xnow][ynow<span class="hljs-number" style="color: rgb(104, 150, 186);">-1</span>]);
+                ynow -=<span class="hljs-number" style="color: rgb(104, 150, 186);">1</span>;
+            }
+            <span class="hljs-built_in" style="color: rgb(224, 196, 108);">else</span>
+                <span class="hljs-built_in" style="color: rgb(224, 196, 108);">step</span>.push_back(beemap[xnow][ynow]);
+            <span class="hljs-built_in" style="color: rgb(224, 196, 108);">break</span>;
+        <span class="hljs-built_in" style="color: rgb(224, 196, 108);">case</span> <span class="hljs-number" style="color: rgb(104, 150, 186);">5</span>:
+            <span class="hljs-built_in" style="color: rgb(224, 196, 108);">if</span>(xnow<span class="hljs-number" style="color: rgb(104, 150, 186);">-1</span>&gt;=<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span> &amp;&amp; ynow<span class="hljs-number" style="color: rgb(104, 150, 186);">-1</span>&gt;=<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>){
+                <span class="hljs-built_in" style="color: rgb(224, 196, 108);">step</span>.push_back(beemap[xnow<span class="hljs-number" style="color: rgb(104, 150, 186);">-1</span>][ynow<span class="hljs-number" style="color: rgb(104, 150, 186);">-1</span>]);
+                xnow -=<span class="hljs-number" style="color: rgb(104, 150, 186);">1</span>;
+                ynow -=<span class="hljs-number" style="color: rgb(104, 150, 186);">1</span>;
+            }
+            <span class="hljs-built_in" style="color: rgb(224, 196, 108);">else</span>
+                <span class="hljs-built_in" style="color: rgb(224, 196, 108);">step</span>.push_back(beemap[xnow][ynow]);
+            <span class="hljs-built_in" style="color: rgb(224, 196, 108);">break</span>;
+        }
+    }
+    set&lt;<span class="hljs-keyword" style="color: rgb(203, 120, 50);">char</span>&gt; unique;
+    <span class="hljs-built_in" style="color: rgb(224, 196, 108);">for</span>(<span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> i=<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>;i&lt;<span class="hljs-built_in" style="color: rgb(224, 196, 108);">step</span>.<span class="hljs-built_in" style="color: rgb(224, 196, 108);">size</span>();i++){
+        cout &lt;&lt; <span class="hljs-built_in" style="color: rgb(224, 196, 108);">step</span>[i];
+        unique.insert(<span class="hljs-built_in" style="color: rgb(224, 196, 108);">step</span>[i]);
+    }
+    cout &lt;&lt; endl &lt;&lt; unique. Size();
+    <span class="hljs-built_in" style="color: rgb(224, 196, 108);">return</span> <span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>;
+}</pre>
+        </div>
+
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="about.html">About</a>
+            <a href="coding.html">Coding</a>
+            <a href="photo.html">Photograph</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+        <footer><p style="color: aliceblue;">Copyright© 2024 AKOU | All rights reserved.版權所有© 2024 AKOU</p></footer>
+    </body>
+</html>
+
+<!--code展示框範例
+
+    <div class="code" id="編號">
+            <li>編號</li>
+<pre>
+內容直接縮到第一排
+</pre>
+        </div>
+
+-->
