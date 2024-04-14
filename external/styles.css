@@ -3,6 +3,10 @@
     100% {opacity: 1;backdrop-filter: blur(4px);}
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 body{
     background-color: #222222;
     width: 99.3%;
@@ -272,7 +276,9 @@ footer{
   font-weight: 600;
   font-size: 27px;
   padding: 5px;
+  border-radius: 10px;
   text-decoration: none;
+  transition: 0.25s ease-in-out;
 }
 
 .cart li a:hover,.cart li a:active{
