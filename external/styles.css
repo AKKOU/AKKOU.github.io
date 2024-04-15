@@ -270,18 +270,17 @@ footer{
   color: aliceblue;
 }
 
-.cart li a{
+li a{
   border: 1px crimson;
   color: aliceblue;
   font-weight: 600;
-  font-size: 27px;
   padding: 5px;
   border-radius: 10px;
   text-decoration: none;
   transition: 0.25s ease-in-out;
 }
 
-.cart li a:hover,.cart li a:active{
+li a:hover,.cart li a:active{
   background-color: crimson;
   color: aliceblue;
   border-radius: 10px;
@@ -289,4 +288,8 @@ footer{
 
 .cart ul li{
   margin: 15px;
+}
+
+.cart li>a{
+  font-size: 27px;
 }
