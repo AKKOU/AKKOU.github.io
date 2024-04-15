@@ -283,6 +283,7 @@ li a{
 li a:hover,.cart li a:active{
   background-color: crimson;
   color: aliceblue;
+  text-decoration: none;
   border-radius: 10px;
 }
 
