@@ -181,6 +181,9 @@ footer{
 .news-paragrah{
   color: aliceblue;
   text-align: center;
+  background-color: #111;
+  padding: 4px;
+  border-radius: 16px;
 }
 
 .contact-icon{
