@@ -1,12 +1,22 @@
+/*動畫*/
 @keyframes fadeIn{
     0% {opacity: 0;backdrop-filter: blur(0px);}
     100% {opacity: 1;backdrop-filter: blur(4px);}
 }
+@keyframes fadeintoast {
+  from{bottom: 0;opacity: 0;}
+  to {bottom: 40px;opacity: 1;}
+}
+@keyframes fadeouttoast {
+  from{bottom: 40px;opacity: 1;}
+  to {bottom: 0;opacity: 0;}
+}
 
+/*本體架構*/
 html{
   scroll-behavior: smooth;
 }
-
+/*本體架構*/
 body{
     background-color: #222222;
     width: 99.3%;
@@ -14,25 +24,7 @@ body{
     overflow-x: hidden;
 }
 
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* 定義滾動條的軌道 */
-::-webkit-scrollbar-track {
-  background: #222;
-}
-
-/* 定義滾動條的滑塊 */
-::-webkit-scrollbar-thumb {
-  background: #555;
-}
-
-/* 定義滾動條的滑塊：滑鼠懸停 */
-::-webkit-scrollbar-thumb:hover {
-  background: aliceblue;
-}
-
+/*頁尾*/
 footer{
   display: flex;
   justify-content: center;
@@ -41,6 +33,24 @@ footer{
   text-align: center;
 }
 
+/*網頁拉條*/
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #222;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #555;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: aliceblue;
+}
+
+/*上方商標*/
 .imgbox{
     display: flex;
     width: 99.3%;
@@ -50,21 +60,21 @@ footer{
     position: fixed;
     z-index: 9899;
 }
-
+/*LOGO*/
 .BigTitle{
     max-width: 100%;
     max-height: 5vh;
     margin: auto;
     cursor:pointer;
 }
-
+/*主頁背景*/
 .mainimg{
     display: block;
     margin: 0 auto;
     width: 100%;
     max-width: 100%;
 }
-
+/*主頁大字*/
 .centered-text{
     backdrop-filter: blur(4px);
     position: absolute;
@@ -79,7 +89,7 @@ footer{
     padding: 70px 100%;
     text-align: center;
 }
-
+/*導覽選單*/
 .sidenav {
     height: 100%;
     width: 0;
@@ -158,7 +168,7 @@ footer{
   font-size: 40px;
   color: aliceblue;
 }
-
+/*新公告*/
 .News{
   opacity: 0;
   transition: opacity 1s;
@@ -219,7 +229,7 @@ footer{
   margin-left: 27px;
   margin-top: -90px;
 }
-
+/*吐司訊息*/
 #toast{
   visibility: hidden;
   min-width: 150px;
@@ -235,20 +245,10 @@ footer{
   bottom: 40px;
   font-size: 17px;
 }
-
+/*吐司訊息*/
 #toast.show{
   visibility: visible;
   animation: fadeintoast 0.5s,fadeouttoast 0.5s 2.5s;
-}
-
-@keyframes fadeintoast {
-  from{bottom: 0;opacity: 0;}
-  to {bottom: 40px;opacity: 1;}
-}
-
-@keyframes fadeouttoast {
-  from{bottom: 40px;opacity: 1;}
-  to {bottom: 0;opacity: 0;}
 }
 
 .code{
