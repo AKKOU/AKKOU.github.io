@@ -12,6 +12,14 @@
   to {bottom: 0;opacity: 0;}
 }
 
+@keyframes slide-in{
+  0%{
+    background-size: 0% 100%;
+  }
+  100%{
+    background-size: 100% 100%;
+  }
+}
 /*本體架構*/
 html{
   scroll-behavior: smooth;
@@ -26,11 +34,15 @@ body{
 
 /*頁尾*/
 footer{
+  user-select: none;
   display: flex;
   justify-content: center;
   flex-direction: column;
   min-height: 40vh;
   text-align: center;
+}
+img{
+  user-select: none;
 }
 
 /*網頁拉條*/
@@ -52,45 +64,49 @@ footer{
 
 /*上方商標*/
 .imgbox{
-    display: flex;
-    width: 99.3%;
-    background-color: crimson;
-    padding: 10px 10px;
-    top: 0;
-    position: fixed;
-    z-index: 9899;
+  user-select: none;
+  display: flex;
+  width: 99.3%;
+  background-color: crimson;
+  padding: 10px 10px;
+  top: 0;
+  position: fixed;
+  z-index: 9899;
 }
 /*LOGO*/
 .BigTitle{
-    max-width: 100%;
-    max-height: 5vh;
-    margin: auto;
-    cursor:pointer;
+  user-select: none;
+  max-width: 100%;
+  max-height: 5vh;
+  margin: auto;
+  cursor:pointer;
 }
 /*主頁背景*/
 .mainimg{
-    display: block;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 100%;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
 }
 /*主頁大字*/
 .centered-text{
-    backdrop-filter: blur(4px);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    color: aliceblue;
-    font-family: "Noto Sans TC", sans-serif;
-    font-optical-sizing: auto;
-    animation: fadeIn 2s ease-in-out;
-    border-radius: 16px;
-    padding: 70px 100%;
-    text-align: center;
+  user-select: none;
+  backdrop-filter: blur(4px);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: aliceblue;
+  font-family: "Noto Sans TC", sans-serif;
+  font-optical-sizing: auto;
+  animation: fadeIn 2s ease-in-out;
+  border-radius: 16px;
+  padding: 70px 100%;
+  text-align: center;
 }
 /*導覽選單*/
 .sidenav {
+  user-select: none;
     height: 100%;
     width: 0;
     position: fixed;
@@ -274,6 +290,7 @@ footer{
 }
 
 li a{
+  user-select: none;
   border: 1px crimson;
   color: aliceblue;
   font-weight: 600;
@@ -296,4 +313,24 @@ li a:hover,.cart li a:active{
 
 .cart li>a{
   font-size: 27px;
+}
+
+#apcs{
+  display: none;
+}
+
+.nav-title{
+  cursor: pointer;
+  padding-left: 11px;
+  user-select: none;
+}
+
+.nav-title:hover{
+  cursor: pointer;
+  background-image: linear-gradient(to bottom right,crimson 10%,transparent 90%);
+  padding-left: 11px;
+  background-size: 0% 100%;
+  background-position: left center;
+  background-repeat: no-repeat;
+  animation: slide-in 0.5s forwards;
 }

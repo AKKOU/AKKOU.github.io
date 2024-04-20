@@ -1,4 +1,5 @@
 var isOpen=false;
+
 function openNav(event,x) {
     event.stopPropagation();
     document.getElementById("mySidenav").style.width = "250px";
@@ -34,9 +35,6 @@ function addClassToVisibleElements(){
     });
 }
 
-document.addEventListener("scroll",addClassToVisibleElements);
-addClassToVisibleElements();
-
 function copycontact(name){
     navigator.clipboard.writeText(name)
     .then(() => {
@@ -51,4 +49,8 @@ function copycontact(name){
     setTimeout(function(){
         x.className = x.className.replace('show','');}, 3000);
 }
+
+document.addEventListener("scroll",addClassToVisibleElements);
+addClassToVisibleElements();
+
 
