@@ -37,8 +37,10 @@
                     <h2 class="nav-title" id="nav-apcs">APCS</h2>
                     <div id="apcs">
                         <ul>
+                            <li><a href="#b965" title="b965. 2. 矩陣轉換">b965</a></li>
                             <li><a href="#c290" title="c290. APCS 2017-0304-1秘密差">c290</a></li>
                             <li><a href="#c291" title="c291. APCS 2017-0304-2小群體">c291</a></li>
+                            <li><a href="#c295" title="c295. APCS-2016-1029-2最大和">c295</a></li>
                             <li><a href="#c461" title="c461. apcs 邏輯運算子">c461</a></li>
                             <li><a href="#d575" title="d575. 末日審判">d575</a></li>
                             <li><a href="#e786" title="e786. b1.修辭迴文">e786</a></li>
@@ -48,6 +50,55 @@
                     </div>
                 </li>
             </ul>
+        </div>
+
+        <div class="code" id="b965">
+            <li><a target="_blank" href="https://zerojudge.tw/ShowProblem?problemid=b965">b965. 2. 矩陣轉換</a></li>
+            <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(43, 43, 43); color: rgb(186, 186, 186);"><span class="hljs-meta" style="color: rgb(127, 127, 127);">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta" style="color: rgb(127, 127, 127);">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;vector&gt;</span></span>
+<span class="hljs-keyword" style="color: rgb(203, 120, 50);">using</span> <span class="hljs-keyword" style="color: rgb(203, 120, 50);">namespace</span> <span class="hljs-built_in" style="color: rgb(224, 196, 108);">std</span>;
+
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> <span class="hljs-title">main</span><span class="hljs-params" style="color: rgb(185, 185, 185);">()</span> </span>{
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> r,c,m,abc;
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> b[<span class="hljs-number" style="color: rgb(104, 150, 186);">10</span>][<span class="hljs-number" style="color: rgb(104, 150, 186);">10</span>] = {<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>};
+    <span class="hljs-built_in" style="color: rgb(224, 196, 108);">vector</span>&lt;<span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span>&gt; act;
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">while</span> (<span class="hljs-built_in" style="color: rgb(224, 196, 108);">cin</span> &gt;&gt; r &gt;&gt; c &gt;&gt; m)
+    {
+        <span class="hljs-keyword" style="color: rgb(203, 120, 50);">for</span> (<span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> i = <span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>; i &lt; r; i++)<span class="hljs-keyword" style="color: rgb(203, 120, 50);">for</span> (<span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> j = <span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>; j &lt; c; j++)<span class="hljs-built_in" style="color: rgb(224, 196, 108);">cin</span> &gt;&gt; b[i][j];
+        <span class="hljs-keyword" style="color: rgb(203, 120, 50);">for</span> (<span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> i = <span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>; i &lt; m; i++) {
+            <span class="hljs-built_in" style="color: rgb(224, 196, 108);">cin</span> &gt;&gt; abc;
+            act.push_back(abc);
+        }
+        <span class="hljs-keyword" style="color: rgb(203, 120, 50);">for</span>(<span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> zz=act.size()<span class="hljs-number" style="color: rgb(104, 150, 186);">-1</span>;zz&gt;=<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>;zz--){
+            <span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> tmp[<span class="hljs-number" style="color: rgb(104, 150, 186);">10</span>][<span class="hljs-number" style="color: rgb(104, 150, 186);">10</span>] = {<span class="hljs-number" style="color: rgb(104, 150, 186);">-1</span>};
+            <span class="hljs-keyword" style="color: rgb(203, 120, 50);">if</span>(act[zz]==<span class="hljs-number" style="color: rgb(104, 150, 186);">1</span>){ <span class="hljs-comment" style="color: rgb(127, 127, 127);">//翻轉</span>
+                <span class="hljs-keyword" style="color: rgb(203, 120, 50);">for</span>(<span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> i=<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>;i&lt;r;i++){
+                    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">for</span>(<span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> j=<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>;j&lt;c;j++){
+                        tmp[i][j] = b[r<span class="hljs-number" style="color: rgb(104, 150, 186);">-1</span>-i][j];
+                    }
+                }
+            }
+            <span class="hljs-keyword" style="color: rgb(203, 120, 50);">if</span>(act[zz]==<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>){ <span class="hljs-comment" style="color: rgb(127, 127, 127);">//旋轉</span>
+                swap(r,c);
+                <span class="hljs-keyword" style="color: rgb(203, 120, 50);">for</span>(<span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> i=<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>;i&lt;r;i++){
+                    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">for</span>(<span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> j=<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>;j&lt;c;j++){
+                        tmp[i][j] = b[j][r-i<span class="hljs-number" style="color: rgb(104, 150, 186);">-1</span>];
+                    }
+                }
+            }
+            <span class="hljs-keyword" style="color: rgb(203, 120, 50);">for</span>(<span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> i=<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>;i&lt;<span class="hljs-number" style="color: rgb(104, 150, 186);">10</span>;i++)<span class="hljs-keyword" style="color: rgb(203, 120, 50);">for</span>(<span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> j=<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>;j&lt;<span class="hljs-number" style="color: rgb(104, 150, 186);">10</span>;j++) b[i][j] = tmp[i][j];
+        }
+        <span class="hljs-built_in" style="color: rgb(224, 196, 108);">cout</span> &lt;&lt; r &lt;&lt; <span class="hljs-string" style="color: rgb(224, 196, 108);">" "</span> &lt;&lt; c &lt;&lt; <span class="hljs-built_in" style="color: rgb(224, 196, 108);">endl</span>;
+        <span class="hljs-keyword" style="color: rgb(203, 120, 50);">for</span> (<span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> i = <span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>; i &lt; r; i++) {
+            <span class="hljs-keyword" style="color: rgb(203, 120, 50);">for</span> (<span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> j = <span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>; j &lt; c; j++) {
+            <span class="hljs-built_in" style="color: rgb(224, 196, 108);">cout</span> &lt;&lt; b[i][j];
+            <span class="hljs-keyword" style="color: rgb(203, 120, 50);">if</span> (j &lt; c - <span class="hljs-number" style="color: rgb(104, 150, 186);">1</span>)
+                <span class="hljs-built_in" style="color: rgb(224, 196, 108);">cout</span> &lt;&lt; <span class="hljs-string" style="color: rgb(224, 196, 108);">" "</span>;
+        }
+            <span class="hljs-built_in" style="color: rgb(224, 196, 108);">cout</span> &lt;&lt; <span class="hljs-built_in" style="color: rgb(224, 196, 108);">endl</span>;
+        }
+    }
+}</pre>
         </div>
         
         <div class="code" id="c290">
@@ -118,6 +169,41 @@
 
     <span class="hljs-built_in" style="color: rgb(224, 196, 108);">cout</span> &lt;&lt; count;
     <span class="hljs-keyword" style="color: rgb(203, 120, 50);">return</span> <span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>;
+}</pre>
+        </div>
+
+        <div class="code" id="c295">
+            <li><a target="_blank" href="https://zerojudge.tw/ShowProblem?problemid=c295">c295. APCS-2016-1029-2最大和</a></li>
+            <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(43, 43, 43); color: rgb(186, 186, 186);"><span class="hljs-meta" style="color: rgb(127, 127, 127);">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta" style="color: rgb(127, 127, 127);">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;vector&gt;</span></span>
+<span class="hljs-keyword" style="color: rgb(203, 120, 50);">using</span> <span class="hljs-keyword" style="color: rgb(203, 120, 50);">namespace</span> <span class="hljs-built_in" style="color: rgb(224, 196, 108);">std</span>;
+
+<span class="hljs-function"><span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> <span class="hljs-title">main</span><span class="hljs-params" style="color: rgb(185, 185, 185);">()</span> </span>{
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> n,m,total=<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>,cnt=<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>;
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">bool</span> check=<span class="hljs-literal" style="color: rgb(104, 150, 186);">false</span>;
+    <span class="hljs-built_in" style="color: rgb(224, 196, 108);">vector</span>&lt;<span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span>&gt; dp;
+    <span class="hljs-built_in" style="color: rgb(224, 196, 108);">cin</span> &gt;&gt; n &gt;&gt; m;
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">for</span>(<span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> i=<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>;i&lt;n;i++){
+        <span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> a =<span class="hljs-number" style="color: rgb(104, 150, 186);">-1</span>,b;
+        <span class="hljs-keyword" style="color: rgb(203, 120, 50);">for</span>(<span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> j=<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>;j&lt;m;j++){
+            <span class="hljs-built_in" style="color: rgb(224, 196, 108);">cin</span> &gt;&gt; b;
+            <span class="hljs-keyword" style="color: rgb(203, 120, 50);">if</span>(b&gt;=a)
+                a = b;
+        }
+        total+=a;
+        dp.push_back(a);
+    }
+    <span class="hljs-built_in" style="color: rgb(224, 196, 108);">cout</span> &lt;&lt; total &lt;&lt; <span class="hljs-built_in" style="color: rgb(224, 196, 108);">endl</span>;
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">for</span>(<span class="hljs-keyword" style="color: rgb(203, 120, 50);">int</span> i=<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>;i&lt;dp.size();i++){
+        <span class="hljs-keyword" style="color: rgb(203, 120, 50);">if</span>(total%dp[i]==<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>){
+            <span class="hljs-keyword" style="color: rgb(203, 120, 50);">if</span>(cnt!=<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span> &amp;&amp; dp.size() != <span class="hljs-number" style="color: rgb(104, 150, 186);">1</span>) <span class="hljs-built_in" style="color: rgb(224, 196, 108);">cout</span> &lt;&lt; <span class="hljs-string" style="color: rgb(224, 196, 108);">' '</span> &lt;&lt; dp[i];
+            <span class="hljs-keyword" style="color: rgb(203, 120, 50);">else</span> <span class="hljs-built_in" style="color: rgb(224, 196, 108);">cout</span> &lt;&lt; dp[i];
+            check = <span class="hljs-literal" style="color: rgb(104, 150, 186);">true</span>;
+            cnt++;
+        }
+    }
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">if</span>(!check)
+        <span class="hljs-built_in" style="color: rgb(224, 196, 108);">cout</span> &lt;&lt; <span class="hljs-string" style="color: rgb(224, 196, 108);">"-1"</span>;
 }</pre>
         </div>
 
