@@ -2,6 +2,7 @@
 <html lang="zh-TW">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>AKOU'S Personal Website</title>
         <link rel="icon" type="image/x-icon" href="image/1.ico?v=2">
         <link rel="stylesheet" href="external/styles.css">
@@ -14,7 +15,7 @@
 
     <body onclick="closeNav(event)">
         <div class="imgbox">
-            <img class="BigTitle" src="image/logo1.png">
+            <img class="BigTitle" src="image/logo1.png" onclick="window.location.href='index.html'">
             <div class="container" onclick="openNav(event,this)">
                 <div class="bar1"></div>
                 <div class="bar2"></div>
@@ -48,7 +49,7 @@
                     <li>Code page Available</li>
                     <li>Better UI/UX</li>
                     <li>Bugs Fixed</li>
-                    <img style="margin-top: 10px;" src="image/update20240414.gif">
+                    <img class="news-image" src="image/update20240414.gif">
                     <p> </p>
                 </ui>
             </div>

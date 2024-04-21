@@ -66,7 +66,7 @@ img{
 .imgbox{
   user-select: none;
   display: flex;
-  width: 99.3%;
+  width: 100%;
   background-color: crimson;
   padding: 10px 10px;
   top: 0;
@@ -205,6 +205,10 @@ img{
   background-color: #111;
   padding: 4px;
   border-radius: 16px;
+}
+
+.news-image{
+  margin-top: 10px;
 }
 
 .contact-icon{
@@ -349,11 +353,11 @@ li a:hover,.cart li a:active{
     width: 70%;
     padding-top: 15%;
     margin-left: 25%;
-    font-size: 20px;
+    font-size: 10px;
     color: aliceblue;
   }
   .cart li>a{
-    font-size: 20px;
+    font-size: 10px;
     padding-left: 0px;
   }
   .navbar{
@@ -382,6 +386,59 @@ li a:hover,.cart li a:active{
     padding-left: 0px;
   }
   li>a{
-    font-size: 25px;
+    font-size: 20px;
+  }
+  .imgbox{
+    user-select: none;
+    display: flex;
+    width: 100%;
+    height: 4%;
+    background-color: crimson;
+    padding: 10px 10px;
+    top: 0;
+    position: fixed;
+    z-index: 9899;
+  }
+  /*LOGO*/
+  .BigTitle{
+    user-select: none;
+    max-width: 100%;
+    max-height: 4.5vh;
+    margin: auto;
+    cursor:pointer;
+  }
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    text-align: center;
+  }
+  .bar1, .bar2, .bar3{
+    width: 23px;
+    height: 3px;
+    background-color: #222222;
+    margin: 3px 0;
+    margin-right: 5px;
+    transition: 0.3s;
+  }
+  .news-title{
+    color: aliceblue;
+    font-size: 40px;
+    text-align: center;
+  }
+  .news-paragrah{
+    color: aliceblue;
+    text-align: center;
+    background-color: #111;
+    padding: 4px;
+    width: 100%;
+    border-radius: 16px;
+  }
+  .news-image{
+    margin-top: 10px;
+    transform: scale(0.5);
   }
 }
