@@ -326,7 +326,10 @@ li a:hover,.cart li a:active{
   font-size: 27px;
 }
 
-#apcs{
+.nav-item{
+  display: none;
+}
+#nav-dcbot{
   display: none;
 }
 

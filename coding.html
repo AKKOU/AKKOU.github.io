@@ -19,6 +19,11 @@
                     $("#apcs").slideToggle("fast");
                 })
             })
+            $(document).ready(function(){
+                $("#nav-dcbot").click(function(){
+                    $("#dcbot").slideToggle("fast");
+                })
+            })
         </script>
     </head>
 
@@ -36,7 +41,7 @@
             <ul class="cart">
                 <li>
                     <h2 class="nav-title" id="nav-apcs">APCS</h2>
-                    <div id="apcs">
+                    <div class="nav-item" id="apcs">
                         <ul>
                             <li><a href="#b965" title="b965. 2. 矩陣轉換">b965</a></li>
                             <li><a href="#b966" title="b966. 3. 線段覆蓋長度">b966</a></li>
@@ -49,6 +54,13 @@
                             <li><a href="#e786" title="e786. b1.修辭迴文">e786</a></li>
                             <li><a href="#m931" title="m931. 1. 遊戲選角">m931</a></li>
                             <li><a href="#m932" title="m932. 2. 蜜蜂觀察">m932</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <h2 class="nav-title" id="nav-dcbot">DiscordBot</h2>
+                    <div class="nav-item" id="dcbot">
+                        <ul>
                         </ul>
                     </div>
                 </li>
