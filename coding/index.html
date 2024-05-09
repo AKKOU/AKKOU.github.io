@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>AKOU'S Personal Website - Coding</title>
+        <link rel="icon" type="image/x-icon" href="../image/1.ico?v=2">
+        <link rel="stylesheet" href="../external/styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
+        <link href='https://unpkg.com/css.gg@2.0.0/icons/css/menu.css' rel='stylesheet'>
+        <script type="text/javascript" src="../external/script.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+        <script>
+            $(document).ready(function(){
+                $("#content").load("apcs.html");
+            })
+            $(document).ready(function(){
+                $("#nav-apcs").click(function(){
+                    $("#apcs").slideToggle("fast");     //選單打開
+                    $("#dcbot").slideUp("fast");        //關閉其他
+                    $("#content").load("apcs.html");    //載入頁面 
+                    $("html,body").scrollTop(0);        //滑到最上面
+                })
+            })
+            $(document).ready(function(){
+                $("#nav-dcbot").click(function(){
+                    $("#dcbot").slideToggle("fast");     //選單打開
+                    $("#apcs").slideUp("fast");      //關閉其他
+                    $("#content").load("dcbot.html");   //載入頁面 
+                    $("html,body").scrollTop(0);        //滑到最上面
+                })
+            })
+        </script>
+    </head>
+
+    <body onclick="closeNav(event)">
+        <div class="imgbox">
+            <img class="BigTitle" src="../image/logo1.png" onclick="window.location.href='../'">
+            <div class="container" onclick="openNav(event,this)">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+        </div>
+
+        <div class="navbar">
+            <ul class="cart">
+                <li>
+                    <h2 class="nav-title" id="nav-apcs">APCS</h2>
+                    <div class="nav-item" id="apcs">
+                        <ul>
+                            <li><a href="#b965" title="b965. 2. 矩陣轉換">b965</a></li>
+                            <li><a href="#b966" title="b966. 3. 線段覆蓋長度">b966</a></li>
+                            <li><a href="#c290" title="c290. APCS 2017-0304-1秘密差">c290</a></li>
+                            <li><a href="#c291" title="c291. APCS 2017-0304-2小群體">c291</a></li>
+                            <li><a href="#c292" title="c292. APCS2017-0304-3數字龍捲風">c292</a></li>
+                            <li><a href="#c295" title="c295. APCS-2016-1029-2最大和">c295</a></li>
+                            <li><a href="#c461" title="c461. apcs 邏輯運算子">c461</a></li>
+                            <li><a href="#d575" title="d575. 末日審判">d575</a></li>
+                            <li><a href="#e786" title="e786. b1.修辭迴文">e786</a></li>
+                            <li><a href="#m931" title="m931. 1. 遊戲選角">m931</a></li>
+                            <li><a href="#m932" title="m932. 2. 蜜蜂觀察">m932</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <h2 class="nav-title" id="nav-dcbot">DiscordBot</h2>
+                    <div class="nav-item" id="dcbot">
+                        <ul>
+                            <li><a href="#dcbot-intro" title="DiscordBot介紹">DcBot介紹</a></li>
+                            <li><a href="#dcbot-pyimport" title="Python Import DC套件">導入DC套件</a></li>
+                            <li><a href="#dcbot-cog" title="Cog架構">Cog架構</a></li>
+                            <li><a href="#dcbot-listener" title="Listener事件">Listener</a></li>
+                            <li><a href="#dcbot-slashcmd" title="斜線指令">斜線指令</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div id="content"></div>
+
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav(event)">&times;</a>
+            <a href="../about">About</a>
+            <a href="../coding">Coding</a>
+            <a href="../photo">Photograph</a>
+            <a href="../contact">Contact</a>
+        </div>
+
+        <footer><p style="color: aliceblue;">Copyright© 2024 AKOU | All rights reserved.版權所有© 2024 AKOU</p></footer>
+    </body>
+</html>
+
+<!--code展示框範例
+
+    <div class="code" id="編號">
+            <li>編號</li>
+<pre>
+內容直接縮到第一排
+</pre>
+        </div>
+
+-->

@@ -1,0 +1,96 @@
+<link rel="stylesheet" href="codestyle.css">
+<div class="code">
+    <h1 style="text-align: center;">DiscordBot Python製作</h1>
+</div>
+<div class="code" id="dcbot-intro">
+    <li id="top-title"><a target="_blank">DiscordBot介紹</a></li>
+    <div class="text-content">
+        <p>DiscordBot是一種聊天機器人，使用者可以將機器人加入自己的Discord群組，並且透過機器人實現許多不同的自動化功能。</p>
+        <p>Discord的機器人支援Javascript及Python來編寫，本次所使用的語言為Python。</p>
+        <p>目前市面上常見的機器人有:音樂機器人、統計機器人、即時顯示機器人等等，機器人可以搭配Python的各種套件，來實現各式各樣的功能。</p>
+    </div>
+</div>
+
+<div class="code" id="dcbot-pyimport">
+    <li><a target="_blank" >導入DC套件</a></li>
+    <div class="text-content">
+        <p>要使用Python撰寫一台Discord機器人，需要先到 <a href="https://discord.com/developers/applications?new_application=true">Discord developer Portal</a> 註冊一台機器人，註冊完成後將會獲得一組金鑰。</p>
+        <p>再來需要在Terminal使用Pip安裝Discord套件:</p>
+        <pre class="hljs" style="border-radius: 16px;padding: 10px;display: block; overflow-x: auto; padding: 0.5em; background: rgb(15, 15, 15); color: rgb(186, 186, 186);">pip <span class="hljs-keyword" style="color: rgb(203, 120, 50);">install</span> discord</pre>
+        <p>接下來就是建立一個Python檔案，輸入下列程式就可以順利連接上剛才註冊好的機器人。</p>
+        <pre class="hljs" style="border-radius: 16px;padding: 10px;display: block; overflow-x: auto; padding: 0.5em; background: rgb(15, 15, 15); color: rgb(186, 186, 186);"><span class="hljs-keyword" style="color: rgb(203, 120, 50);">import</span> discord
+
+intent = discord.Intents.all()
+intent.message_content = <span class="hljs-keyword" style="color: rgb(203, 120, 50);">True</span>
+bot = commands.Bot(command_prefix=<span class="hljs-string" style="color: rgb(224, 196, 108);">"$"</span>,intents=intent)
+intent.run(<span class="hljs-string" style="color: rgb(224, 196, 108);">"TOKEN"</span>)
+</pre>
+    </div>
+</div>
+
+<div class="code" id="dcbot-cog">
+    <li><a target="_blank" >Cog架構</a></li>
+    <div class="text-content">
+        <p>Cog架構簡單來說就是將不同功能分散到不同的.py執行檔中，並且在機器人的主程式中指定特定資料夾內的執行檔並載入。</p>
+        <p>這樣做的目的是在未來管理各項功能會比較方便，不管是上架新功能，或是要下架舊的功能，不需要去動主程式，只需要新增或移除Cog資料夾內的執行檔即可。</p>
+        <p>要實現這功能，需要在主要的執行檔bot.py中新增以下程式:</p>
+        <pre class="hljs" style="border-radius: 16px;padding: 10px;display: block; overflow-x: auto; padding: 0.5em; background: rgb(15, 15, 15); color: rgb(186, 186, 186);"><span class="hljs-keyword" style="color: rgb(203, 120, 50);">import</span> os
+
+<span class="hljs-keyword" style="color: rgb(203, 120, 50);">async</span> <span class="hljs-function"><span class="hljs-keyword" style="color: rgb(203, 120, 50);">def</span> <span class="hljs-title">load_extension</span><span class="hljs-params" style="color: rgb(185, 185, 185);">()</span>:</span>
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">for</span> file <span class="hljs-keyword" style="color: rgb(203, 120, 50);">in</span> os.listdir(<span class="hljs-string" style="color: rgb(224, 196, 108);">"Cog資料夾路徑"</span>):
+        <span class="hljs-keyword" style="color: rgb(203, 120, 50);">if</span>(file.endswith(<span class="hljs-string" style="color: rgb(224, 196, 108);">".py"</span>)):
+            print(f<span class="hljs-string" style="color: rgb(224, 196, 108);">"載入檔案:{file}.."</span>)
+            <span class="hljs-keyword" style="color: rgb(203, 120, 50);">await</span> bot.load_extension(f<span class="hljs-string" style="color: rgb(224, 196, 108);">"cogs.{file[:-3]}"</span>)
+<span class="hljs-keyword" style="color: rgb(203, 120, 50);">async</span> <span class="hljs-function"><span class="hljs-keyword" style="color: rgb(203, 120, 50);">def</span> <span class="hljs-title">main</span><span class="hljs-params" style="color: rgb(185, 185, 185);">()</span>:</span>
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">async</span> <span class="hljs-keyword" style="color: rgb(203, 120, 50);">with</span> bot:
+        <span class="hljs-keyword" style="color: rgb(203, 120, 50);">await</span> load_extension()
+        <span class="hljs-keyword" style="color: rgb(203, 120, 50);">await</span> bot.start(<span class="hljs-string" style="color: rgb(224, 196, 108);">"TOKEN"</span>)</pre>
+        <p>接著在各功能的獨立執行檔中新增以下這段:</p>
+        <pre class="hljs" style="border-radius: 16px;padding: 10px;display: block; overflow-x: auto; padding: 0.5em; background: rgb(15, 15, 15); color: rgb(186, 186, 186);"><span class="hljs-keyword" style="color: rgb(203, 120, 50);">from</span> discord.ext <span class="hljs-keyword" style="color: rgb(203, 120, 50);">import</span> commands
+
+<span class="hljs-class"><span class="hljs-keyword" style="color: rgb(203, 120, 50);">class</span> <span class="hljs-title">Example</span><span class="hljs-params" style="color: rgb(185, 185, 185);">(commands. Cog)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword" style="color: rgb(203, 120, 50);">def</span> <span class="hljs-title">__init__</span><span class="hljs-params" style="color: rgb(185, 185, 185);">(self,bot:commands.Bot)</span>:</span>
+        self.bot = bot
+
+<span class="hljs-keyword" style="color: rgb(203, 120, 50);">async</span> <span class="hljs-function"><span class="hljs-keyword" style="color: rgb(203, 120, 50);">def</span> <span class="hljs-title">setup</span><span class="hljs-params" style="color: rgb(185, 185, 185);">(bot:commands.Bot)</span>:</span>
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">await</span> bot.add_cog(Example(bot))</pre>
+    </div>
+</div>
+
+<div class="code" id="dcbot-listener">
+    <li><a target="_blank">Listener</a></li>
+    <div class="text-content">
+        <p>Listener直接翻譯就是聆聽者，他的功能就是監看聊天室的訊息，只要抓到特定的詞語，就會觸發事件。</p>
+        <p>在增加任何事件前，為了避免機器人讀取到自己的訊息並進入無窮迴圈，必須先加入判斷，避免讀取自己發出的訊息。</p>
+        <pre class="hljs" style="border-radius: 16px;padding: 10px;display: block; overflow-x: auto; padding: 0.5em; background: rgb(15, 15, 15); color: rgb(186, 186, 186);"><span class="hljs-keyword" style="color: rgb(203, 120, 50);">if</span> message.author == self.bot.user:
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">return</span></pre>
+        <p>舉例來說，當使用者輸入【早安】，機器人就會回覆【早安馬卡巴卡】。</p>
+        <pre class="hljs" style="border-radius: 16px;padding: 10px;display: block; overflow-x: auto; padding: 0.5em; background: rgb(15, 15, 15); color: rgb(186, 186, 186);"><span class="hljs-meta" style="color: rgb(127, 127, 127);">@commands.Cog.listener()</span>
+<span class="hljs-keyword" style="color: rgb(203, 120, 50);">async</span> <span class="hljs-function"><span class="hljs-keyword" style="color: rgb(203, 120, 50);">def</span> <span class="hljs-title">on_message</span><span class="hljs-params" style="color: rgb(185, 185, 185);">(self,message:discord.Message)</span>:</span>
+<span class="hljs-keyword" style="color: rgb(203, 120, 50);">if</span> message. Content == <span class="hljs-string" style="color: rgb(224, 196, 108);">"早安"</span>:
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">await</span> message.channel.send(<span class="hljs-string" style="color: rgb(224, 196, 108);">"早安馬卡巴卡"</span>)</pre>
+        <p>圖片範例:</p>
+        <img src="dcbot_img_ex/001.png">
+        <p>也能夠偵測機器人是否被@提及，若被提及則觸發事件。</p>
+        <pre class="hljs" style="border-radius: 16px;padding: 10px;display: block; overflow-x: auto; padding: 0.5em; background: rgb(15, 15, 15); color: rgb(186, 186, 186);"><span class="hljs-meta" style="color: rgb(127, 127, 127);">@commands.Cog.listener()</span>
+<span class="hljs-keyword" style="color: rgb(203, 120, 50);">async</span> <span class="hljs-function"><span class="hljs-keyword" style="color: rgb(203, 120, 50);">def</span> <span class="hljs-title">on_message</span><span class="hljs-params" style="color: rgb(185, 185, 185);">(self,message:discord.Message)</span>:</span>
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">if</span> self.bot.user <span class="hljs-keyword" style="color: rgb(203, 120, 50);">in</span> message.mentions:
+        <span class="hljs-keyword" style="color: rgb(203, 120, 50);">await</span> message.channel.send(<span class="hljs-string" style="color: rgb(224, 196, 108);">"?"</span>)</pre>
+        <p>圖片範例:</p>
+        <img src="dcbot_img_ex/002.png">
+    </div>
+</div>
+
+<div class="code" id="dcbot-slashcmd">
+    <li><a target="_blank">斜線指令</a></li>
+    <div class="text-content">
+        <p>斜線指令(Slash Command)為Discord的一項新功能，能讓機器人透過/指令來執行特定的功能。</p>
+        <p>範例中，name為這個指令的名稱，description為指令的解釋，可以讓使用者了解這個指令的功能。</p>
+        <p>使用者輸入/hello即可觸發此事件。</p>
+        <pre class="hljs" style="border-radius: 16px;padding: 10px;display: block; overflow-x: auto; padding: 0.5em; background: rgb(15, 15, 15);color: rgb(186, 186, 186);"><span class="hljs-meta" style="color: rgb(127, 127, 127);">@app_commands.command(name="hello",description="hello world")</span>
+<span class="hljs-keyword" style="color: rgb(203, 120, 50);">async</span> <span class="hljs-function"><span class="hljs-keyword" style="color: rgb(203, 120, 50);">def</span> <span class="hljs-title">hello</span><span class="hljs-params" style="color: rgb(185, 185, 185);">(self, interaction:discord.Interaction)</span>:</span>
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">await</span> interaction.response.send_message(<span class="hljs-string" style="color: rgb(224, 196, 108);">"Hello there!"</span>)</pre>
+    <p>圖片範例:</p>
+    <img src="dcbot_img_ex/004.png">
+</div>
+</div>
