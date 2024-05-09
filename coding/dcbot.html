@@ -64,7 +64,7 @@ intent.run(<span class="hljs-string" style="color: rgb(224, 196, 108);">"TOKEN"<
         <p>在增加任何事件前，為了避免機器人讀取到自己的訊息並進入無窮迴圈，必須先加入判斷，避免讀取自己發出的訊息。</p>
         <pre class="hljs" style="border-radius: 16px;padding: 10px;display: block; overflow-x: auto; padding: 0.5em; background: rgb(15, 15, 15); color: rgb(186, 186, 186);"><span class="hljs-keyword" style="color: rgb(203, 120, 50);">if</span> message.author == self.bot.user:
     <span class="hljs-keyword" style="color: rgb(203, 120, 50);">return</span></pre>
-        <p>舉例來說，當使用者輸入【早安】，機器人就會回覆【早安馬卡巴卡】。</p>
+        <p>舉一個例子，當使用者輸入【早安】，機器人就會回覆【早安馬卡巴卡】。</p>
         <pre class="hljs" style="border-radius: 16px;padding: 10px;display: block; overflow-x: auto; padding: 0.5em; background: rgb(15, 15, 15); color: rgb(186, 186, 186);"><span class="hljs-meta" style="color: rgb(127, 127, 127);">@commands.Cog.listener()</span>
 <span class="hljs-keyword" style="color: rgb(203, 120, 50);">async</span> <span class="hljs-function"><span class="hljs-keyword" style="color: rgb(203, 120, 50);">def</span> <span class="hljs-title">on_message</span><span class="hljs-params" style="color: rgb(185, 185, 185);">(self,message:discord.Message)</span>:</span>
 <span class="hljs-keyword" style="color: rgb(203, 120, 50);">if</span> message. Content == <span class="hljs-string" style="color: rgb(224, 196, 108);">"早安"</span>:
