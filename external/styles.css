@@ -71,7 +71,6 @@ img{
   padding: 10px 10px;
   top: 0;
   position: fixed;
-  z-index: 9899;
 }
 /*LOGO*/
 .BigTitle{
@@ -87,6 +86,9 @@ img{
   margin: 0 auto;
   width: 100%;
   max-width: 100%;
+  height: 100%;
+  max-height: 1000px;
+  object-fit: cover;
 }
 /*主頁大字*/
 .centered-text{
@@ -211,6 +213,7 @@ img{
 
 .news-image{
   margin-top: 10px;
+  max-width: 100%;
 }
 
 .contact-icon{
