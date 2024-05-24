@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="codestyle.css">
+<h1 class="code-title">DiscordBot Python製作</h1>
 <div class="code">
-    <h1 style="text-align: center;">DiscordBot Python製作</h1>
 </div>
 <div class="code" id="dcbot-intro">
     <li id="top-title"><a target="_blank">DiscordBot介紹</a></li>
@@ -14,7 +14,7 @@
 <div class="code" id="dcbot-pyimport">
     <li><a target="_blank" >導入DC套件</a></li>
     <div class="text-content">
-        <p>要使用Python撰寫一台Discord機器人，需要先到 <a id="dc-dev" href="https://discord.com/developers/applications?new_application=true" target="_blank">Discord developer Portal</a> 註冊一台機器人，註冊完成後將會獲得一組金鑰。</p>
+        <p>要使用Python撰寫一台Discord機器人，需要先到 <a id="dc-href" href="https://discord.com/developers/applications?new_application=true" target="_blank">Discord developer Portal</a> 註冊一台機器人，註冊完成後將會獲得一組金鑰。</p>
         <p>再來需要在Terminal使用Pip安裝Discord套件:</p>
         <pre class="hljs" style="border-radius: 16px;padding: 10px;display: block; overflow-x: auto; padding: 0.5em; background: rgb(15, 15, 15); color: rgb(186, 186, 186);">pip <span class="hljs-keyword" style="color: rgb(203, 120, 50);">install</span> discord</pre>
         <p>接下來就是建立一個Python檔案，輸入下列程式就可以順利連接上剛才註冊好的機器人。</p>
@@ -94,3 +94,84 @@ intent.run(<span class="hljs-string" style="color: rgb(224, 196, 108);">"TOKEN"<
     <img src="dcbot_img_ex/004.png">
 </div>
 </div>
+
+<div class="code" id="dcbot-randreply">
+    <li><a target="_blank">隨機回覆</a></li>
+    <div class="text-content">
+        <p>DiscordBot可以針對特定的字詞作出指定動作，比如執行指令或是回傳數值或字串。</p>
+        <p>因此，可以透過這個方式來實現回覆訊息的功能，讓使用者和機器人對話，本次將使用Json檔，透過Request的方式來取得回覆內容。</p>
+        <p>為何要使用Request來取得回覆的腳本?不能直接寫在程式內嗎? 答案是可以，但若是要新增新詞彙，就需要去更新原代碼，相對來說比較麻煩。</p>
+        <p>但若是透過外部的Json檔來提供詞彙，就可以直接更新Json檔，即可實現新增或刪除詞彙的功能，會省事很多。</p>
+        <br>
+        <p>要使用Python的Request功能，必須先Import Request</p>
+        <pre class="hljs" style="border-radius: 16px;padding: 10px;display: block; overflow-x: auto; padding: 0.5em; background: rgb(15, 15, 15); color: rgb(186, 186, 186);"><span class="hljs-keyword" style="color: rgb(203, 120, 50);">import</span> requests</pre>
+        <p>再來就是建立一個Json檔案並且放置在本地或是雲端，這次的範例會把文件放置在github.io網域上</p>
+        <p>Json範例:</p>
+        <pre class="hljs" style="border-radius: 16px;padding: 10px;display: block; overflow-x: auto; padding: 0.5em; background: rgb(15, 15, 15); color: rgb(186, 186, 186);">{
+    <span class="hljs-attr">"午安"</span>: <span class="hljs-string" style="color: rgb(224, 196, 108);">"午安阿朋友,下午好,真假中午了,我剛起床,睡到中午"</span>,
+    <span class="hljs-attr">"晚安"</span>: <span class="hljs-string" style="color: rgb(224, 196, 108);">"幾點了,我先睡了晚安,：),晚安好晚上好,ZZZzz.."</span>
+}</pre>
+        <p>在Python部分讀取Json文件:</p>
+        <pre class="hljs" style="border-radius: 16px;padding: 10px;display: block; overflow-x: auto; padding: 0.5em; background: rgb(15, 15, 15); color: rgb(186, 186, 186);">json_data = requests.get(<span class="hljs-string" style="color: rgb(224, 196, 108);">"https://EXAMPLE.github.io/TEST.json"</span>)
+data = json.loads(json_data.text)</pre>
+        <p>再來就是讀取使用者輸入內容，判斷是否有指定詞彙，若有則從內容中挑選一個做回覆。</p>
+        <pre class="hljs" style="border-radius: 16px;padding: 10px;display: block; overflow-x: auto; padding: 0.5em; background: rgb(15, 15, 15); color: rgb(186, 186, 186);">msg = message.content
+<span class="hljs-keyword" style="color: rgb(203, 120, 50);">if</span>(msg <span class="hljs-keyword" style="color: rgb(203, 120, 50);">in</span> data):
+    lst = str(data[msg]).split(<span class="hljs-string" style="color: rgb(224, 196, 108);">','</span>)
+    <span class="hljs-keyword" style="color: rgb(203, 120, 50);">await</span> message.channel.send(lst[random.randrange(<span class="hljs-number" style="color: rgb(104, 150, 186);">0</span>,len(lst))])</pre>
+    <p>這個範例中，首先先判斷使用者訊息 msg，若data內有這個詞彙，就將data中對應msg的內容取出轉換成list。</p>
+    <p>在這邊使用split功能，因為在我們的Json檔案中是使用 "," 來分隔回覆內容，所以我們可以透過split(',')來將字串分割成list。</p>
+    <p>當內容轉成list後，就可以透過await來執行回覆動作，回覆的內容則是list中隨機挑選一個。</p>
+    <p>所以可以使用 random.randrange(0,len(lst)) 挑選從0 ~ 陣列長度的內容。</p><br>
+    <p>以下為實際效果:</p>
+    <img src="dcbot_img_ex/005.png">
+</div>
+</div>
+
+<div class="code" id="dcbot-stock">
+    <div class="text-content">
+        <li><a target="_blank">股票查詢</a></li>
+        <p>除了基本回訊息功能，也可以透過DiscordBot快速的查詢股票資訊，可以透過之前的斜線指令來實現這個功能。</p>
+        <p>這一次會使用到第三方的twstock套件，寫程式之前必須先安裝套件:</p>
+        <pre class="hljs" style="border-radius: 16px;padding: 10px;display: block; overflow-x: auto; padding: 0.5em; background: rgb(15, 15, 15); color: rgb(186, 186, 186);">pip <span class="hljs-keyword" style="color: rgb(203, 120, 50);">install</span> twstock</pre>
+        <p>再來就是導入套件到Python中:</p>
+        <pre class="hljs" style="border-radius: 16px;padding: 10px;display: block; overflow-x: auto; padding: 0.5em; background: rgb(15, 15, 15); color: rgb(186, 186, 186);"><span class="hljs-keyword" style="color: rgb(203, 120, 50);">import</span> twstock
+<span class="hljs-keyword" style="color: rgb(203, 120, 50);">from</span> twstock.realtime <span class="hljs-keyword" style="color: rgb(203, 120, 50);">import</span> get</pre>
+        <p>再來就是宣告參數，這邊我使用了兩種取得方式，兩種都可以，我會使用兩個是因為第一個是獲取即時訊息，第二個是獲取完整資訊，num的部分則為股票代號，如台積電為 '2330'</p>
+        <pre class="hljs" style="border-radius: 16px;padding: 10px;display: block; overflow-x: auto; padding: 0.5em; background: rgb(15, 15, 15); color: rgb(186, 186, 186);"><span class="hljs-comment" style="color: rgb(127, 127, 127);">#初始化</span>
+stock = get(num)
+stock_price = twstock.Stock(num)</pre>
+        <p>再來獲取到的參數可以分為兩部分，股票資訊和及時價格</p>
+        <pre class="hljs" style="border-radius: 16px;padding: 10px;display: block; overflow-x: auto; padding: 0.5em; background: rgb(15, 15, 15); color: rgb(186, 186, 186);"><span class="hljs-comment" style="color: rgb(127, 127, 127);">#讀取資料</span>
+sinfo = stock[<span class="hljs-string" style="color: rgb(224, 196, 108);">'info'</span>]
+price = stock[<span class="hljs-string" style="color: rgb(224, 196, 108);">'realtime'</span>]</pre>
+        <p>再來是判斷股票的漲幅，因為我們獲取的參數沒有直接提供漲跌金額和幅度，所以必續自己計算</p>
+        <p>範例中是抓取昨日收盤價及現在的價格來運算，因此使用到第二個參數stock_price</p>
+        <pre class="hljs" style="border-radius: 16px;padding: 10px;display: block; overflow-x: auto; padding: 0.5em; background: rgb(15, 15, 15); color: rgb(186, 186, 186);"><span class="hljs-comment" style="color: rgb(127, 127, 127);">#是否上漲</span>
+gap = stock_price.price[<span class="hljs-number" style="color: rgb(104, 150, 186);">-1</span>] - stock_price.price[<span class="hljs-number" style="color: rgb(104, 150, 186);">-2</span>] #漲跌
+percent = stock_price.price[<span class="hljs-number" style="color: rgb(104, 150, 186);">-1</span>] / stock_price.price[<span class="hljs-number" style="color: rgb(104, 150, 186);">-2</span>] #漲幅</pre>
+        <p>再來就是可以透過這些設定好的資料去做查詢了，以下是各式資訊的對應名稱:</p>
+        <pre class="hljs" style="border-radius: 16px;padding: 10px;display: block; overflow-x: auto; padding: 0.5em; background: rgb(15, 15, 15); color: rgb(186, 186, 186);">price[<span class="hljs-string" style="color: rgb(224, 196, 108);">'latest_trade_price'</span>] <span class="hljs-comment" style="color: rgb(127, 127, 127);">#成交價</span>
+price[<span class="hljs-string" style="color: rgb(224, 196, 108);">'high'</span>] <span class="hljs-comment" style="color: rgb(127, 127, 127);">#最高價</span>
+price[<span class="hljs-string" style="color: rgb(224, 196, 108);">'low'</span>] <span class="hljs-comment" style="color: rgb(127, 127, 127);">#最低價</span>
+price[<span class="hljs-string" style="color: rgb(224, 196, 108);">'open'</span>] <span class="hljs-comment" style="color: rgb(127, 127, 127);">#開盤價</span>
+sinfo[<span class="hljs-string" style="color: rgb(224, 196, 108);">'time'</span>] <span class="hljs-comment" style="color: rgb(127, 127, 127);">#成交日期</span></pre>
+        <p>以下為實際的效果:</p>
+        <div style="display: flexbox;">
+            <img src="dcbot_img_ex/006.png">
+            <img src="dcbot_img_ex/007.png">
+            <img src="dcbot_img_ex/008.png">
+        </div>
+        <p>透過判斷漲幅上漲或下跌，可以給予相對顏色，讓使用者更快速判斷今日股市狀況。</p>
+</div>
+</div>
+
+<!-- <div class="code" id="dcbot-weather">
+    <div class="text-content">
+        <li><a target="_blank">天氣查詢</a></li>
+        <p>天氣查詢也是一個日常使用的功能，台灣的中央氣象局有提供公開的氣象預報API，可以讓民眾隨意使用，只需要到 <a id="dc-href" href="https://opendata.cwa.gov.tw/index">氣象資料開放平臺</a> 申請帳號即可。</p>
+        <p>一樣使用Python Request功能獲取氣象局API資料:</p>
+        <pre class="hljs" style="border-radius: 16px;padding: 10px;display: block; overflow-x: auto; padding: 0.5em; background: rgb(15, 15, 15); color: rgb(186, 186, 186);">response = requests. Get(<span class="hljs-string" style="color: rgb(224, 196, 108);">"API連結"</span>)</pre>
+        
+    </div>
+</div> -->
