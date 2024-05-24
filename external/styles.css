@@ -149,6 +149,7 @@ img{
   top: 0;
   right: 0;
   background-color: #111;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 1);
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
@@ -178,7 +179,6 @@ img{
 }
 
 #main {
-  transition: margin-right .5s;
   padding: 16px;
 }
 
@@ -329,6 +329,13 @@ img{
   color: aliceblue;
 }
 
+.code-title{
+  text-align: center;
+  margin-top: 7%;
+  margin-bottom: -2%;
+  color: aliceblue;
+}
+
 .code>li{
   font-size: 40px;
 }
@@ -338,8 +345,8 @@ img{
   height: 100%;
   background: linear-gradient(90deg,#181818,#222,#181818);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 1);
-  width:15%;
-  max-width:25%;
+  width:16%;
+  max-width:20%;
   top: 7%;
   overflow-x: hidden;
   padding-left: 10px;
@@ -376,11 +383,12 @@ li a:hover,.cart li a:active{
 }
 
 .cart ul li{
-  margin: 15px;
+  margin-top: 15px;
+  margin-left: -1vw;
 }
 
 .cart li>a{
-  font-size: 27px;
+  font-size: 1.2em;
 }
 
 .nav-item{
@@ -408,14 +416,33 @@ li a:hover,.cart li a:active{
   .code{
     margin: auto;
     width: 70%;
-    margin-top: 15%;
+    margin-top: 5%;
     margin-left: 25%;
     font-size: 10px;
+    color: aliceblue;
+  }
+  .code-title{
+    margin: auto;
+    width: 70%;
+    margin-top: 20%;
+    margin-left: 25%;
+    font-size: 1.5em;
     color: aliceblue;
   }
   .cart li>a{
     font-size: 10px;
     padding-left: 0px;
+    margin-left: -0.5vw;
+  }
+  .cart ul li{
+    margin-top: 15px;
+    margin-left: -2vw;
+  }
+  .nav-title{
+    cursor: pointer;
+    padding-left: 11px;
+    user-select: none;
+    font-size: 1.2em;
   }
   .navbar{
     position: fixed;
@@ -490,13 +517,65 @@ li a:hover,.cart li a:active{
   .news-paragrah{
     color: aliceblue;
     text-align: center;
-    background-color: #111;
     padding: 4px;
     width: 100%;
     border-radius: 16px;
   }
   .news-image{
     margin-top: 10px;
-    transform: scale(0.5);
+    transform: scale(0.9);
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .code{
+    margin-top: 12%;
+    margin-left: 29%;
+  }
+  .code-title{
+    text-align: center;
+    margin-top: 15%;
+    margin-left: 21%;
+    margin-bottom: -5%;
+    color: aliceblue;
+  }
+  .cart li>a{
+    font-size: 2.2em;
+    padding-left: 0px;
+  }
+  .cart ul li{
+    margin-top: 15px;
+    margin-left: -2vw;
+  }
+  .nav-title{
+    cursor: pointer;
+    padding-left: 11px;
+    user-select: none;
+    font-size: 2.2em;
+  }
+  .navbar{
+    position: fixed;
+    height: 100%;
+    background-color: rgb(44, 44, 44);
+    width:20%;
+    top: 7%;
+    overflow-x: hidden;
+    padding-left: 0px;
+    color: aliceblue;
+    font-size: 10px;
+    overflow: auto;
+  }
+  .navbar::-webkit-scrollbar{
+    width: 10px;
+    background: #222;
+  }
+  .navbar::-webkit-scrollbar-thumb{
+    background: #555;
+  }
+  .navbar::-ms-thumb:hover{
+    background: aliceblue;
+  }
+  .navbar > ul{
+    padding-left: 0px;
   }
 }
