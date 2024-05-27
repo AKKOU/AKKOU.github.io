@@ -2,6 +2,16 @@
 > -> [CLICK ME](https://akkou.github.io/) TO THE WEBSITE\
 > A second grade student from high school, I'm learning Programming and stuffs, this is my website and I'll put stuffs on it as a journal. 
 ## Updates
+> ### **2024.05.24**
+> - More DiscordBot code
+> - Better UI design
+> - Add Shadows for container
+> - Remove some unnecessary color
+> - Better Web Responsive for tablet and horizontal mobile
+> - Main page text overlay fixed
+> - Other Bug Fixed
+
+## Updates
 > ### **2024.05.09**
 > - Add DiscordBot code
 > - More APCS problems sloved
