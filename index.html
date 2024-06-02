@@ -11,7 +11,14 @@
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
         <link href='https://unpkg.com/css.gg@2.0.0/icons/css/menu.css' rel='stylesheet'>
         <script type="text/javascript" src="external/script.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     </head>
+
+    <script>
+        $(document).ready(function(){
+            $("#foot").text("Copyright© " + (new Date).getFullYear() + " AKOU | All rights reserved.版權所有© " + (new Date).getFullYear() + " AKOU");
+        })
+    </script>
 
     <body onclick="closeNav(event)">
         <div class="imgbox">
@@ -29,7 +36,7 @@
 
         <div class="centered-text">
             <h1 class="MainText MainTextColor">AKOU'S Personal Website</h1>
-            <b style="text-align: center;">My Code Learning Journal</b>
+            <b style="text-align: center;" id="test">My Code Learning Journal</b>
         </div>
         
         <div id="mySidenav" class="sidenav">
@@ -87,7 +94,7 @@
             </div>
         </div>
 
-        <footer><p style="color: aliceblue;">Copyright© 2024 AKOU | All rights reserved.版權所有© 2024 AKOU</p></footer>
+        <footer><p style="color: aliceblue;" id="foot"></p></footer>
     </body>
 
 </html> 
