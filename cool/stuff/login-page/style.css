@@ -1,0 +1,184 @@
+body{
+    overflow: hidden;
+    background:url("../../../image/login_wallpaper.jpg");
+    background-size: 100%;
+}
+
+.content{
+    color: white;
+    background: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    display: grid;
+    width: 20%;
+    top: 50%;
+    left: 50%;
+    padding: 30px;
+    transform: translate(-50%,-50%);
+    border: 2px solid white;
+    border-radius: 24px;
+    backdrop-filter: blur(7px);
+    text-align: center;
+}
+
+.login_bt{
+    transition: .3s ease-in-out;
+}
+
+.login_bt:hover{
+    background-color: rgb(206, 206, 206);
+    transition: .3s ease-in-out;
+}
+
+.content b{
+    font-weight: var(--font-medium);
+    font-size: 50px;
+    margin-bottom: 2rem;
+}
+
+.login_form{
+    position: relative;
+    
+}
+
+.login_content, .login_box{
+    display: grid;
+}
+
+.login_content{
+    row-gap: 1.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.login_box{
+    grid-template-columns: max-content 1fr;
+    align-items: center;
+    column-gap: .75rem;
+    border-bottom: 2px solid white;
+}
+
+.login_icon , .login_eye{
+    font-size: 1.25rem;
+}
+
+.login_input{
+    width: 100%;
+    padding-block: .8rem;
+    background: none;
+    border: none;
+    outline: none;
+    color: white;
+    position: relative;
+    z-index: 1;
+}
+
+.login_box_input{
+    position: relative;
+
+}
+
+.login_label{
+    position: absolute;
+    left: 0;
+    top: 13px;
+    font-weight: var(--font-medium);
+    transition: top .3s, font-size .3s;
+}
+
+.login_eye{
+    position: absolute;
+    right: 0;
+    top: 18px;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.login_box:nth-child(2) input{
+    padding-right: 1.8rem;
+}
+
+.login_check,.login_check_group{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.login_check{
+    margin-bottom: 1.5rem;
+}
+
+.check_label,.login_forget,.login_register{
+    font-size: var(--small-font-size);
+}
+
+.login_check_group{
+    column-gap: .5rem;
+}
+
+.checkbox-input{
+    width: 16px;
+    height: 16px;
+}
+
+.login_forget{
+    color: white;
+    text-decoration: none;
+}
+
+.login_forget:hover{
+    color: white;
+    text-decoration: underline;
+}
+
+.login_bt{
+    width: 100%;
+    padding: 1rem;
+    border-radius: .5rem;
+    background-color: white;
+    font-weight: var(--font-medium);
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
+
+.login_register{
+    text-align: center;
+    font-weight: 300;
+}
+
+.login_register a{
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.login_register a:hover{
+    color: white;
+    text-decoration: underline;
+}
+
+/*input focus move up*/
+.login_input:focus + .login_label{
+    top: -12px;
+    font-size: var(--small-font-size);
+    outline: none;
+}
+
+.login_input:not(:placeholder-shown).login_input:not(:focus) + .login_label{
+    top: -12px;
+    font-size: var(--small-font-size);
+
+}
+
+/*medium device*/
+@media screen and (max-width:576px) {
+    .content{
+        justify-content: center;
+    }
+    .login_form{
+        width: 432px;
+        padding: 4rem 3rem 3.5rem;
+        border-radius: 1.5rem;
+    }
+    b{
+        font-size: 2rem;
+    }
+}

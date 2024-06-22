@@ -39,7 +39,7 @@ html{
 body{
     background: linear-gradient(90deg,#0f0f0f,#252525,#0f0f0f);
     background-color: transparent;
-    width: 99.3%;
+    width: 100%;
     max-width: 100vw;
     overflow-x: hidden;
 }
