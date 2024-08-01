@@ -10,6 +10,12 @@
     width: 50%;
     font-weight: 900;
     max-width: 100%;
+    margin-bottom: 30px;
+}
+
+a{
+    color: rgb(230, 230, 230);
+    font-weight: 900;
 }
 
 .btn::after{
@@ -18,7 +24,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: #181818;
+    background-color: rgb(189, 17, 52);
     left: 0;
     top: 0;
     border-radius: 10px;
@@ -78,6 +84,22 @@
     flex-wrap: wrap;
     row-gap: 50px;
     color: white;
+}
+
+.center{
+    box-shadow:10px 0px 10px 10px rgba(0, 0, 0, 0.5) ;
+    width: 50%; ;
+    text-align: center;
+    font-size: 3rem;
+    color: aliceblue
+    ;border-radius: 16px;
+    padding: 10px;
+    background-color: #111;
+    border: solid crimson 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 
 .content_cool>img{

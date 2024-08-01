@@ -1,126 +1,31 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>AKOU'S Personal Website</title>
-        <link rel="icon" type="image/x-icon" href="/image/1.ico?v=2">
-        <link rel="stylesheet" href="external/styles.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
-        <link href='https://unpkg.com/css.gg@2.0.0/icons/css/menu.css' rel='stylesheet'>
-        <script type="text/javascript" src="external/script.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="12;url=https://akkkou.com">
+    <link rel="stylesheet" href="cool/cool_style.css">
+    <title>AKOU'S Personal Website</title>
+</head>
+<body style="background-color: #222;">
+    <div class="center" style="padding-top: 0px;">
+        <img class="BigTitle" style="width: 40%;background-color: crimson;padding: 10px;border-radius: 0 0 16px 16px;" src="image/logo1.png"><br>
+        <b style="font-size: 7rem;">新網站上線</b>
+        <br>
+        <b>網站搬家了，全新網址</b>
+        <p><a href="https://akkkou.com">akkkou.com</a></p>
+        <p style="font-size: 50%;" id="count">即將在 10 秒後傳送到全新頁面</p>
+        <button class="btn" onclick="window.open('https://akkkou.com','_self')">或是馬上過去</button>
+    </div>
+</body>
 
-    <script>
-        $(document).ready(function(){
-            $("#foot").text("Copyright© " + (new Date).getFullYear() + " AKOU | All rights reserved.版權所有© " + (new Date).getFullYear() + " AKOU");
-        })
-    </script>
-
-    <body onclick="closeNav(event)">
-        <div class="imgbox">
-            <img class="BigTitle" src="image/logo1.png" onclick="window.location.href='index.html'">
-            <div class="container" onclick="openNav(event,this)">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-            </div>
-        </div>
-
-        <div>
-            <img class="mainimg" src="https://i.pinimg.com/originals/b8/dd/fb/b8ddfbb198825156089392b60b25b1ab.jpg">
-        </div>
-
-        <div class="centered-text">
-            <h1 class="MainText MainTextColor">AKOU'S Personal Website</h1>
-            <b style="text-align: center;" id="test">..網頁技術大升級 敬請期待..</b>
-        </div>
-        
-        <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" id="closebtn" onclick="closeNav(event)">&times;</a>
-            <a href="about">About</a>
-            <a href="coding">Coding</a>
-            <a href="cool">Cool Stuff</a>
-            <a href="contact">Contact</a>
-        </div>
-
-        <div class="News">
-            <h2 class="news-title">What's New?</h2>
-            <div class="news-paragrah">
-                <ui>
-                    <h2>Updates (2024.06.22)</h2>
-                    <li>New Page Available (Cool Stuff)</li>
-                    <li>Bugs Fixed</li>
-                    <img class="news-image" src="./image/rolling_icon.gif">
-                    <p> </p>
-                </ui>
-            </div>
-        </div>
-
-        <div class="News">
-            <div class="news-paragrah">
-                <ui>
-                    <h2>Updates (2024.06.15)</h2>
-                    <li>More APCS code</li>
-                    <li>Add Icon for Code(Language Type)</li>
-                    <li>Remove Photo Page(New page coming soon)</li>
-                    <li>Other Bug Fixed</li>
-                    <img class="news-image" src="https://i.gifer.com/3AyY.gif">
-                    <p> </p>
-                </ui>
-            </div>
-        </div>
-
-        <div class="News">
-            <div class="news-paragrah">
-                <ui>
-                    <h2>Updates (2024.05.24)</h2>
-                    <li>More DiscordBot code</li>
-                    <li>Better UI design</li>
-                    <li>Add Shadows for container</li>
-                    <li>Remove some unnecessary color</li>
-                    <li>Better Web Responsive for tablet and horizontal mobile</li>
-                    <li>Main page text overlay fixed</li>
-                    <li> Other Bug Fixed</li>
-                    <img class="news-image" src="https://i.pinimg.com/originals/f5/c5/5b/f5c55bbf73975d5ee0e3c96a5cf79e2c.gif">
-                    <p> </p>
-                </ui>
-            </div>
-        </div>
-
-        <div class="News">
-            <div class="news-paragrah">
-                <ui>
-                    <h2>Updates (2024.05.09)</h2>
-                    <li>Add DiscordBot code</li>
-                    <li>More APCS problems sloved</li>
-                    <li>Better Navbar for Coding page</li>
-                    <li>Better Web Responsive for mobile device</li>
-                    <li>Bugs Fixed</li>
-                    <img class="news-image" src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Clyde.gif">
-                    <p> </p>
-                </ui>
-            </div>
-        </div>
-        
-        <div class="News">
-            <div class="news-paragrah">
-                <ui>
-                    <h2>Updates (2024.04.14)</h2>
-                    <li>Website Online</li>
-                    <li>Code page Available</li>
-                    <li>Better UI/UX</li>
-                    <li>Bugs Fixed</li>
-                    <img class="news-image" src="image/update20240414.gif">
-                    <p> </p>
-                </ui>
-            </div>
-        </div>
-
-        <footer><p style="color: aliceblue;" id="foot"></p></footer>
-    </body>
-
-</html> 
+<script>
+    var x = 10;
+    setInterval(function(){
+        if(x>=0){
+            document.getElementById('count').innerText = `即將在 ${x} 秒後傳送到全新頁面`;
+            x -= 1;
+        }
+    },1000);
+</script>
+</html>
